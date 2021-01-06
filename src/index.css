@@ -1,13 +1,264 @@
-body {
+*,
+::after,
+::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+  --backgroundColor :rgba(223, 249, 251,1);
+  --textColor : #222;
+  --buttonColor:rgba(26, 188, 156,1.0);
+  --buttonHover:rgba(22, 160, 133,1.0);
+  --mainWhite: rgba(236, 240, 241,1.0);
+  --transition: all .3s linear;
 }
+body{
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+
+}
+.section{
+  max-width: 768px;
+  margin: 0 auto;
+  
+}
+.nav{
+
+}
+
+.searchUser{
+  display: grid;
+  grid-template-columns:auto 1fr auto;
+  align-content: center;
+  justify-content: center;
+  background-color: white;
+  padding:5px  1rem;
+  margin: 1rem;
+}
+.searchUser .icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  
+
+}
+.searchUser .icon .search-icon{
+  width: 2.5rem;
+  height: 1.5rem;
+  
+}
+.searchUser form{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.searchUser form input{
+  width: 100%;
+ border: none;
+ outline-style: none;
+ font-size: 1.1rem;
+}
+.searchUser form button{
+  padding:5px 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--buttonColor);
+  transition: var(--transition);
+  font-weight: bold;
+  color: var(--mainWhite);
+  transition: var(--transition);
+  outline-style: none;
+  cursor: pointer;
+}
+.searchUser form button:hover{
+  background-color: var(--buttonHover);
+}
+.searchUser .request{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  
+}
+
+/* user info components */
+
+.user-info{
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px ,1fr));
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+  justify-content: center;
+  align-content: center;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  
+}
+
+.inv-info{
+ 
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+  padding: 1rem;
+  border-radius: 10px;
+  
+}
+.icon-info{
+  width: 2.5rem;
+  height: 1.5rem;
+
+}
+
+.inv-info .inv-details h4,
+.inv-info .inv-details p{
+  margin: 2px 0;
+}
+
+/* dashboad  conponent*/
+
+.dashboad .spinner{
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboad .spinner img{
+  width: 150px;
+  height: 150px;
+}
+
+.dashboad .alert{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding:5px 1rem;
+}
+
+/* user components */
+
+.user-card-followers{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  
+}
+@media (max-width:720px){
+  .user-card-followers{
+    
+    grid-template-columns: 1fr ;
+    
+  }
+}
+
+.user-card{
+  height: 242px;
+  padding: 1rem 2rem;
+  
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow-x: scroll;
+}
+.user-card header{
+  
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-card .card-basic-info{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+.user-card .card-basic-info .card-img-container{
+ width: 50px;
+ height: 50px;
+ margin: 0 10px 0 0;
+ 
+}
+.user-card .card-basic-info .card-img-container img{
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ border-radius: 50%;
+}
+.user-card header a {
+  border: 1px solid var(--buttonColor);
+  padding: 0 10px;
+  color: var(--buttonColor);
+  border-radius: 10px;
+  transition: var(--transition);
+}
+.user-card header a:hover {
+  background-color: var(--buttonHover);
+  color: var(--mainWhite);
+}
+
+.user-card .card-links{
+  margin: 1rem 0;
+}
+.user-card .card-links p,
+.user-card .card-links a
+{
+  display: flex;
+  
+  align-items: center;
+}
+.user-card .card-links p .card-icon,
+.user-card .card-links a .card-icon
+
+{
+  margin: 0 10px 0 0;
+}
+
+
+/* user followers components */
+.user-followers{
+  width: 100%;
+  height: 242px;
+  overflow-x: scroll;
+  
+  padding: 1rem 2rem;
+  background-color:white;
+  border-radius: 10px;
+  position: relative;
+}
+/* .user-followers::after{
+  content: 'followers';
+  top: -15px;
+  left: 0;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  display: block;
+  
+} */
+.user-container{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  
+  justify-content: center;
+  align-content: center;
+}
+.follower-img-container{
+  margin: 0 10px 0 0;
+}
+
